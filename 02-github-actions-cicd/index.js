@@ -4,4 +4,4 @@ function greet(name) {
 
 console.log(greet("Festus"));
 
-module.exports = greet;
+module.exports = greet;// test
