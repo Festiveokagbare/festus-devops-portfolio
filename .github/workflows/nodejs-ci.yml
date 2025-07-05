@@ -2,10 +2,10 @@ name: Node.js CI/CD
 
 on:
   push:
-    paths:
+    branches:
       - main
   pull_request:
-    paths:
+    branches:
       - main
 
 jobs:
