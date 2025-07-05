@@ -3,10 +3,10 @@ name: Node.js CI/CD
 on:
   push:
     paths:
-      - '02-github-actions-cicd/**'
+      - [main]
   pull_request:
     paths:
-      - '02-github-actions-cicd/**'
+      - [main]
 
 jobs:
   build:
