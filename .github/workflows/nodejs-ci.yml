@@ -3,10 +3,10 @@ name: Node.js CI/CD
 on:
   push:
     paths:
-      - [main]
+      - main
   pull_request:
     paths:
-      - [main]
+      - main
 
 jobs:
   build:
