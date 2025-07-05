@@ -1,0 +1,12 @@
+{
+  "name": "ci-cd-node-app",
+  "version": "1.0.0",
+  "description": "Demo project for CI/CD with GitHub Actions",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node index.test.js"
+  },
+  "author": "Festus Okagbare",
+  "license": "MIT"
+}
