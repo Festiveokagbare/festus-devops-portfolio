@@ -24,3 +24,14 @@ Set up a Continuous Integration and Continuous Deployment (CI/CD) pipeline using
 |------------------|--------------------------------------|
 | `EC2_HOST`       | Public IP of the EC2 instance        |
 | `EC2_SSH_KEY`    | Contents of the `.pem` SSH key file  |
+
+
+##  Live Output
+
+Access the site on your EC2 public IP: http://174.129.77.127/
+
+
+## ✅ Status
+✅ CI/CD pipeline works  
+✅ Manual deployment step tested  
+✅ Nginx displays deployed page
