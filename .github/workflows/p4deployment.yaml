@@ -16,11 +16,18 @@ jobs:
     - name: Debug file list
       run: ls -R
 
-    - name: Copy files to EC2
+    - name: Test SSH connection
+      run: |
+        echo "${{ secrets.EC2_SSH_KEY }}" > key.pem
+        chmod 600 key.pem
+        ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@${{ secrets.EC2_HOST }} "echo SSH Connected ✅"
+        rm -f key.pem
+
+    - name: Copy index.html to EC2
       uses: appleboy/scp-action@v0.1.1
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ec2-user
         key: ${{ secrets.EC2_SSH_KEY }}
-        source: "**/index.html"
+        source: "./04b-github-actions-cicd-ec2/index.html"
         target: "/home/ec2-user/"
