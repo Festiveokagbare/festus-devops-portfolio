@@ -13,11 +13,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Debug file list
+      run: ls -R
+
     - name: Copy files to EC2
       uses: appleboy/scp-action@v0.1.1
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ec2-user
         key: ${{ secrets.EC2_SSH_KEY }}
-        source: "index.html"
+        source: "**/index.html"
         target: "/home/ec2-user/"
