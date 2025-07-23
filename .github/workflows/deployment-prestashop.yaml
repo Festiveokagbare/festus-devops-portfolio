@@ -18,11 +18,20 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY2 }}
 
+    - name: Add EC2 host to known_hosts
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan -H ${{ secrets.EC2_HOST2 }} >> ~/.ssh/known_hosts
+
     - name: Rsync files to EC2
       run: |
         rsync -avz --delete ./ ubuntu@${{ secrets.EC2_HOST2 }}:/var/www/html/ \
           --exclude='.git' \
-          --exclude='.github'
+          --exclude='.github' \
+          --exclude='.terraform' \
+          --exclude='*.tfstate' \
+          --exclude='*.tfvars' \
+          --exclude='*.pem'
 
     - name: Restart Apache
       run: |
