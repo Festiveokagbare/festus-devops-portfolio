@@ -4,3 +4,57 @@ terraform.tfstate.backup
 terraform.tfstate
 .terraform.lock.hcl 
 .terraform
+project-keypair.pem
+
+
+/vendor/
+install/
+var/cache/
+var/logs/
+img/tmp/
+upload/
+.env
+*.zip
+*.tar.gz
+*.sql
+node_modules/
+
+# Ignore Terraform state files and backups
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+
+# Ignore Terraform .terraform directory (plugin binaries, provider data)
+.terraform/
+
+# Ignore SSH keys and credentials
+*.pem
+*.key
+*.crt
+
+# Ignore sensitive tfvars file (contains passwords, secrets)
+terraform.tfvars
+
+# Ignore PrestaShop zip files and install artifacts
+*.zip
+install/
+prestashop.zip
+
+# Ignore OS and IDE-specific files
+.DS_Store
+*.swp
+*.swo
+*.log
+*.bak
+*.tmp
+
+# Ignore GitHub Actions cache if used
+.github/workflows/*.log
+
+# Node modules or Composer vendor (if used)
+node_modules/
+vendor/
+
+# Ignore Apache cache or temp (if any)
+cache/
+logs/
