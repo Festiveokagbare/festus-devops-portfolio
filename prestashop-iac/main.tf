@@ -2,7 +2,7 @@ provider "aws" {
   region = var.aws_region
 }
 
-# ✅ New Security Group for EC2 and Terraform-managed RDS
+#  New Security Group for EC2 and Terraform-managed RDS
 resource "aws_security_group" "prestashop_sg_new" {
   name        = "prestashop_sg_new"
   description = "Allow SSH, HTTP and MySQL"
@@ -44,7 +44,7 @@ resource "aws_security_group" "prestashop_sg_new" {
   }
 }
 
-# ✅ EC2 Instance for PrestaShop
+#  EC2 Instance for PrestaShop
 resource "aws_instance" "prestashop_vm" {
   ami                    = var.ami_id
   instance_type          = var.instance_type
@@ -66,7 +66,7 @@ resource "aws_instance" "prestashop_vm" {
   }
 }
 
-# ✅ RDS Subnet Group (must cover 2 AZs)
+# RDS Subnet Group (must cover 2 AZs)
 resource "aws_db_subnet_group" "main" {
   name = "main-db-subnet-group"
   subnet_ids = [
@@ -79,7 +79,7 @@ resource "aws_db_subnet_group" "main" {
   }
 }
 
-# ✅ RDS MySQL Instance
+# RDS MySQL Instance
 resource "aws_db_instance" "prestashop_db" {
   identifier             = "prestashop-db"
   allocated_storage      = var.db_allocated_storage
